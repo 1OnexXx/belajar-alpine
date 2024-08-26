@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="//unpkg.com/alpinejs" defer></script>
+</head>
+<body>
+
+    <div x-data ="{nama : 'Raihan' , angka : 3}" class="container mx-auto w-1/2 text-center mt-10 bg-lime-300 p-10 rounded-xl shadow" >
+        <h1 class="text-5xl font-bold bg-gradient-to-r from-violet-600 to-pink-400 bg-clip-text text-transparent drop-shadow-sm" >
+            Halo , <span x-text="nama"></span>!
+            <span x-text="angka" class="block"></span>Adalah Bilangan : <span x-text="angka % 2 === 0 ? 'Ganjil' : 'Genap' "></span>
+        </h1>
+    </div>
+
+</body>
+</html>

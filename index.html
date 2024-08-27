@@ -9,12 +9,87 @@
 </head>
 <body>
 
-    <div x-data ="{nama : 'Raihan' , angka : 3}" class="container mx-auto w-1/2 text-center mt-10 bg-lime-300 p-10 rounded-xl shadow" >
-        <h1 class="text-5xl font-bold bg-gradient-to-r from-violet-600 to-pink-400 bg-clip-text text-transparent drop-shadow-sm" >
+    <div x-data="{nama : 'Raihan', angka : 6, link : '<a href=\'https://64.media.tumblr.com/405c7e50120034ca218bea4f390034ea/896984098d937cb1-2f/s540x810/4e9e584ccba923dab7f53673b1c3496b12b0a545.gifv\'>raihan wp</a>' , open : false}"  class="container mx-auto w-1/2 text-center mt-10 bg-lime-300 p-10 rounded-xl shadow">
+        <!-- <h1 class="text-2xl font-bold bg-gradient-to-r from-violet-600 to-pink-400 bg-clip-text text-transparent drop-shadow-sm" >
+            Halo , <span x-text="nama"></span>! ,
+            <span x-text="angka" class=""> </span>Adalah Bilangan : <span x-text="angka % 2 === 0 ? 'genap' : 'Ganjil' "></span>
+        </h1> -->
+
+        <!-- <h1 class="text-2xl font-bold bg-gradient-to-r from-violet-600 to-pink-400 bg-clip-text text-transparent drop-shadow-sm" >
             Halo , <span x-text="nama"></span>!
-            <span x-text="angka" class="block"></span>Adalah Bilangan : <span x-text="angka % 2 === 0 ? 'Ganjil' : 'Genap' "></span>
-        </h1>
+            <span x-html="link"></span>
+            
+        </h1> -->
+            <button @click="open = !open"  class="py-4 px-2 text-white rounded-md" x-text="open ? 'tutup wir' : 'buka wir'" x-bind:class="open ? ' bg-cyan-400' : ' bg-slate-600'" @click.outside="open = false"> buka wir</button>
+            <div x-show="open" x-transition.duration.1000ms class="w-3/4 mx-auto mt-4 p-5 bg-blue-400 rounded text-white ">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            </div>
+
+            
     </div>
 
+
+    <div x-data="{pesan : '' , open : false , hobi : [] }" class="container mx-auto w-3/4 text-center mt-10 bg-red-200 p-10 rounded-xl shadow">
+
+        <!-- <button @click="console.dir($event.target.classList.add('bg-red-500'))" class="py-4 px-2 text-white bg-blue-400 rounded-md"> click saya</button> -->
+        <!-- <button @click="ubahWarna" class="py-4 px-2 text-white bg-blue-400 rounded-md"> click saya</button> -->
+
+
+        <!-- <label for="nama" class="text-sm font-medium text-gray-900 block mb-2">Masukan Nama Anda</label>
+        <input type="text" @keyup.debounce.750="console.log($event.target.value)" class="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
+        <button @click.stop="alert('button di click')" class="py-4 px-2 text-white bg-blue-400 rounded-md mt-3"> kirim </button> -->
+
+
+        <label for="nama" class="text-sm font-medium text-gray-900 block mb-2">Masukan Nama Anda</label>
+        <input type="text" x-model="pesan" class="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
+        <span x-text="pesan.length" x-bind:class="pesan.length > 20 ? 'text-red-600' : '' "></span>
+
+        <input type="checkbox"  id="checkbox" x-model="open">
+        <label for="checkbox" x-text="open ? 'terisi' : 'belum isi' "></label>
+
+        <div class="mt-5">
+            <div class="flex items-center mb-2">
+                <input type="checkbox" id="menulis" value="menulis" x-model="hobi">
+                <label for="menulis">menulis</label>
+
+            </div>
+        </div>
+        <div class="mt-5">
+            <div class="flex items-center mb-2">
+                <input type="checkbox" id="bernyanyi" value="bernyanyi" x-model="hobi">
+                <label for="bernyanyi">bernyanyi</label>
+
+            </div>
+        </div>
+        <div class="mt-5">
+            <div class="flex items-center mb-2">
+                <input type="checkbox" id="ngoding" value="ngoding" x-model="hobi">
+                <label for="ngoding">ngoding</label>
+
+            </div>
+        </div>
+        <p class="text-left text-sm ">
+            hobi : <span x-text="hobi.map(h => h.charAt(0).toUpperCase() + h.slice(1))"></span>
+        </p>
+
+    </div>
 </body>
+<!-- ini script -->
+<!-- <script>
+
+    function ubahWarna(e){
+        e.target.classList.add('bg-red-500');
+    }
+
+</script> -->
+
+
+ <!-- cara menggunakan x-if
+    <button @click="open = !open" class="py-4 px-2 bg-slate-600 text-white rounded-md" x-text="open ? 'tutup wir' : 'buka wir'">buka wir</button>
+            <template x-if="open">
+                <div class="w-3/4 mx-auto mt-4 p-5 bg-blue-400 rounded text-white">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                </div>
+            </template> -->
 </html>
+
